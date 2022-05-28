@@ -1,6 +1,7 @@
 ## RepoGolf
 
 This is a little experiment I wrote to compare the codebase sizes of some large open source projects. 
+You can view a webpage with charts here: [https://www.ravbug.com/RepoGolf](https://www.ravbug.com/RepoGolf)
 
 ### How to use
 1. Download the repository

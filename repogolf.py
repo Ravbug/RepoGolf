@@ -30,11 +30,16 @@ def addToRecord(name,count,size,extensions):
 def downloadGithub(name):
     os.system(f"curl -L \"https://github.com/{name}/archive/refs/heads/master.zip\" -o archive.zip && unzip archive.zip > /dev/null && rm archive.zip")
 
+def simpleDirectory(dir,exts,name):
+    if not Path(f"{dir}").exists():
+        raise RuntimeError(f"Directory {dir} not found, either due to download error or bug")
+    fcount, fsize = countFiles(dir,exts)
+    os.system(f"rm -rf {name}")
+    addToRecord(name,fcount,fsize,exts)
+
 def simpleGithub(account,name,exts,branch="master"):
     downloadGithub(f"{account}/{name}")
-    fcount, fsize = countFiles(f"{name}-{branch}",exts)
-    os.system(f"rm -rf {name}-{branch}")
-    addToRecord(name,fcount,fsize,exts)
+    simpleDirectory(f"{name}-{branch}",exts,name)
 
 
 # ================================= Sizing functions ==========================================
@@ -56,11 +61,20 @@ def doUE5():
     simpleGithub("EpicGames","UnrealEngine",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl", ".hlsl", ".vsh",".fsh", ".metal"},"release")
 
 def doLinux():
-    os.system("curl \"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.16.9.tar.xz\" -o archive.xz && unxz -v archive.xz && tar xvf archive")
-    exts = {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl", ".hlsl", ".vsh",".fsh", ".asm", "makefile"}
-    fcount, fsize = countFiles("linux-5.16.9",exts)
-    addToRecord("linux",fcount,fsize,exts)
-    os.system(f"rm -rf archive linux-5.16.9")
+    os.system("curl \"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.16.9.tar.xz\" -o archive.xz && unxz -v archive.xz && tar xvf archive > /dev/null")
+    simpleDirectory("linux-5.16.9",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl", ".hlsl", ".vsh",".fsh", ".asm", "makefile"}, "linux")
+
+def doLLVM():
+    os.system("curl -L \"https://github.com/llvm/llvm-project/archive/refs/tags/llvmorg-14.0.0.zip\" -o archive.zip && unzip archive.zip > /dev/null && rm archive.zip")
+    simpleDirectory("llvm-project-llvmorg-14.0.0",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl", ".hlsl", ".vsh",".fsh", ".asm", "makefile", ".ll", ".py", "CMakeLists.txt"}, "llvm-project")
+
+def doBlender():
+    os.system("git clone https://git.blender.org/blender.git --depth=1")
+    simpleDirectory("blender",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl", ".hlsl", ".vsh",".fsh", ".metal"},"Blender")
+
+def doGCC():
+    os.system("git clone git://gcc.gnu.org/git/gcc.git --depth=1")
+    simpleDirectory("gcc",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake", ".asm", "makefile", ".ads", ".py", ".go", ".d", ".m", ".s", ".S", ".f90", "CMakeLists.txt"},"gcc")
 
 # create output file if it does not exist
 if not outfile.exists():
@@ -76,8 +90,11 @@ fns = {
     "Godot" : doGodot,
     "Rust" : doRust,
     "WebKit" : doWebkit,
-    #"Unreal" : doUE5,
+    "Unreal" : doUE5,
     "Linux" : doLinux,
+    "LLVM" : doLLVM,
+    "Blender" : doBlender,
+    "gcc" : doGCC,
     "all" : doAll
 }
 fn = ""
