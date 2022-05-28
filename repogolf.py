@@ -74,7 +74,11 @@ def doBlender():
 
 def doGCC():
     os.system("git clone git://gcc.gnu.org/git/gcc.git --depth=1")
-    simpleDirectory("gcc",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake", ".asm", "makefile", ".ads", ".py", ".go", ".d", ".m", ".s", ".S", ".f90", "CMakeLists.txt"},"gcc")
+    simpleDirectory("gcc",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake", ".asm", "makefile", ".ads", ".py", ".go", ".d", ".m", ".mm" ,".s", ".S", ".f90", "CMakeLists.txt"},"gcc")
+
+def doSwift():
+    simpleGithub("apple","Swift",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".swift", ".m", ".mm"},"main")
+
 
 # create output file if it does not exist
 if not outfile.exists():
@@ -95,6 +99,7 @@ fns = {
     "LLVM" : doLLVM,
     "Blender" : doBlender,
     "gcc" : doGCC,
+    "swift" : doSwift,
     "all" : doAll
 }
 fn = ""
