@@ -7,14 +7,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: true
+      - name: git config
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 22283943+github-actions[bot]@users.noreply.github.com
+          git checkout -b actions_mods
       - name: Execute
         run: python3 repogolf.py qt6
       - name: git commit
         run: git add output.json && git commit -m "Update Qt6"
-      - name: fetch
-        run: git fetch origin master
-      - name: git push
-        run: git push origin HEAD:master
+      - name: Make PR
+        uses: repo-sync/pull-request@v2
+        with: 
+          destination_branch: "master"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_label: ""
+          pr_title: "[Actions] Update Qt6 Numbers"
