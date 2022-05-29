@@ -19,10 +19,5 @@ jobs:
           git checkout -b actions_mods
       - name: git commit
         run: git add output.json && git commit -m "Update Qt6"
-      - name: Make PR
-        uses: repo-sync/pull-request@v2
-        with: 
-          destination_branch: "actions_mods"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          pr_label: ""
-          pr_title: "[Actions] Update Qt6 Numbers"
+      - name: git push
+        run: git push
