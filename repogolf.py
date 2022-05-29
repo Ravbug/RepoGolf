@@ -4,6 +4,7 @@ import glob
 import os
 import json
 import sys
+from datetime import date
 
 outfile = Path('output.json')
 
@@ -24,22 +25,23 @@ def addToRecord(name,count,size,extensions):
         data = json.load(f)
     
     with open(outfile,"w") as f:
-        data[name] = {"count":count,"size":size,"ext":", ".join(extensions)}
-        json.dump(data,f)
+        data[name] = {"count":count,"size":size,"ext":", ".join(extensions),"date":f"{date.today()}"}
+        pretty_json = json.dumps(data)
+        outfile.write_text(pretty_json)
 
 def downloadGithub(name):
     os.system(f"curl -L \"https://github.com/{name}/archive/refs/heads/master.zip\" -o archive.zip && unzip archive.zip > /dev/null && rm archive.zip")
 
-def simpleDirectory(dir,exts,name):
+def simpleDirectory(dir,exts,name,nameOverride=None):
     if not Path(f"{dir}").exists():
         raise RuntimeError(f"Directory {dir} not found, either due to download error or bug")
     fcount, fsize = countFiles(dir,exts)
     os.system(f"rm -rf {name}")
-    addToRecord(name,fcount,fsize,exts)
+    addToRecord(name if not nameOverride else nameOverride,fcount,fsize,exts)
 
-def simpleGithub(account,name,exts,branch="master"):
+def simpleGithub(account,name,exts,branch="master",nameOverride=None):
     downloadGithub(f"{account}/{name}")
-    simpleDirectory(f"{name}-{branch}",exts,name)
+    simpleDirectory(f"{name}-{branch}",exts,name,nameOverride)
 
 
 # ================================= Sizing functions ==========================================
@@ -79,6 +81,23 @@ def doGCC():
 def doSwift():
     simpleGithub("apple","Swift",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".swift", ".m", ".mm"},"main")
 
+def doChromium():
+    os.system("git -c core.deltaBaseCacheLimit=2g clone https://chromium.googlesource.com/chromium/src.git --depth=1 --recurse-submodules")
+    simpleDirectory("src",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"Chromium")
+    os.system("rm -rf src")
+
+def doFirefox():
+    os.system("hg clone https://hg.mozilla.org/mozilla-central/")
+    simpleDirectory("mozilla-unified",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"Firefox")
+    os.system("rm -rf mozilla-unified")
+
+def doDotnetRuntime():
+    simpleGithub("dotnet","runtime",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".cs", ".csproj"},"main","DotNET-Runtime")
+
+def doBoost():
+    os.system("curl -L https://boostorg.jfrog.io/artifactory/main/release/1.79.0/source/boost_1_79_0.zip -o archive.zip && unzip archive.zip > /dev/null && rm archive.zip")
+    simpleDirectory("boost_1_79_0",{".cpp",".hpp",".c",".h",".cmake"},"boost")
+    os.system("rm -rf boost_1_79_0")
 
 # create output file if it does not exist
 if not outfile.exists():
@@ -100,6 +119,10 @@ fns = {
     "Blender" : doBlender,
     "gcc" : doGCC,
     "swift" : doSwift,
+    "chromium" : doChromium,
+    "firefox" : doFirefox,
+    "dotnet-runtime": doDotnetRuntime,
+    "boost" : doBoost,
     "all" : doAll
 }
 fn = ""
