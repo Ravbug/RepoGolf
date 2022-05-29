@@ -99,6 +99,14 @@ def doBoost():
     simpleDirectory("boost_1_79_0",{".cpp",".hpp",".c",".h",".cmake"},"boost")
     os.system("rm -rf boost_1_79_0")
 
+def doOpenJDK():
+    simpleGithub("openjdk","jdk",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".java", ".m", ".mm"},nameOverride="OpenJDK")
+
+def doQt6():
+    os.system("git clone git://code.qt.io/qt/qt5.git --depth=1 && cd qt5 && git checkout dev && perl init-repository")  
+    simpleDirectory("qt5",{".cpp",".hpp",".cxx", ".cc", ".c",".h",".cmake", ".java", ".cs", ".qml", ".js", ".in", ".m", ".mm", ".S", ".s", ".asm", ".f90", ".metal", ".vert", ".vs", ".frag", ".fs", ".hlsl", ".glsl"},"Qt 6")
+    os.system("rm -rf qt5")
+
 # create output file if it does not exist
 if not outfile.exists():
     with open(outfile,"w+") as f:
@@ -123,6 +131,8 @@ fns = {
     "firefox" : doFirefox,
     "dotnet-runtime": doDotnetRuntime,
     "boost" : doBoost,
+    "openjdk" : doOpenJDK,
+    "qt6" : doQt6,
     "all" : doAll
 }
 fn = ""

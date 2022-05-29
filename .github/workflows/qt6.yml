@@ -1,0 +1,20 @@
+name: Update-Qt6
+on: push
+
+jobs:
+  update-qt6:
+    name: Update Qt6
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Execute
+        run: python3 repogolf.py qt6
+      - name: git commit
+        run: git add output.json && git commit -m "Update Qt6"
+      - name: fetch
+        run: git fetch origin master
+      - name: git push
+        run: git push origin HEAD:master
