@@ -1,11 +1,11 @@
-name: Update-Qt6
+name: Update-Chromium
 on: workflow_dispatch
 
 jobs:
-  update-qt6:
-    name: Update Qt6
+  update-chromium:
+    name: Update Chromium
     runs-on: ubuntu-latest
     steps:
       - uses: ./.github/workflows/update-repo
       - with:
-          name: qt6
+          name: chromium

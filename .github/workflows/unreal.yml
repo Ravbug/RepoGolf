@@ -1,11 +1,11 @@
-name: Update-Qt6
+name: Update-Unreal
 on: workflow_dispatch
 
 jobs:
-  update-qt6:
-    name: Update Qt6
+  update-unreal:
+    name: Update Unreal
     runs-on: ubuntu-latest
     steps:
       - uses: ./.github/workflows/update-repo
       - with:
-          name: qt6
+          name: Unreal

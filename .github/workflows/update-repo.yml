@@ -1,0 +1,26 @@
+name: Update-Repo
+on: workflow_call
+  inputs:
+    name:
+      required: true
+      type: string
+
+jobs:
+  update-repo:
+    name: Update Repo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Execute
+        run: python3 repogolf.py ${{ inputs.name }}
+      - name: git config
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 22283943+github-actions[bot]@users.noreply.github.com
+      - name: git commit
+        run: git add output.json && git commit -m "Update ${{ inputs.name }}"
+      - name: git push
+        run: git push origin HEAD:master
