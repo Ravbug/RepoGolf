@@ -1,9 +1,26 @@
 name: Update-Repo
-on: workflow_call:
+on: workflow_dispatch:
   inputs:
     name:
       required: true
-      type: string
+      type: choice
+      options:
+        - RavEngine
+        - Godot
+        - Rust
+        - WebKit
+        - Unreal
+        - Linux
+        - LLVM
+        - Blender
+        - gcc
+        - swift
+        - chromium
+        - firefox
+        - dotnet-runtime
+        - boost
+        - openjdk
+        - qt6
 
 jobs:
   update-repo:
