@@ -28,17 +28,19 @@ jobs:
     name: Update Repo
     runs-on: ubuntu-latest
     steps:
+      - name: Announce repo
+        runs: echo ${{ github.event.inputs.name }}
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           submodules: true
       - name: Execute
-        run: python3 repogolf.py ${{ inputs.name }}
+        run: python3 repogolf.py ${{ github.event.inputs.name }}
       - name: git config
         run: |
           git config user.name github-actions[bot]
           git config user.email 22283943+github-actions[bot]@users.noreply.github.com
       - name: git commit
-        run: git add output.json && git commit -m "Update ${{ inputs.name }}"
+        run: git add output.json && git commit -m "Update ${{ github.event.inputs.name }}"
       - name: git push
         run: git push origin HEAD:master
