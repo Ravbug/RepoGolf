@@ -26,6 +26,7 @@ on:
           - kotlin
           - fsharp
           - ruby
+          - zig
 
 jobs:
   update-repo:
