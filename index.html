@@ -18,28 +18,116 @@
         </style>
     </head>
     <body>
-        <div id="graph-files"></div>
-        <div id="graph-bytes"></div>
-        <div id="graph-ratio"></div>
+        Select repositories
+        <select id="repochooser"></select>
+        <button onclick="add()">+</button>
+        <button onclick="del()">-</button>
+        <br>
+        Or choose preset
+        <select id="presetchooser">
+            <option value="top-files">Top 5 File Count</option>
+            <option value="engines">Game Engines</option>
+            <option value="runtimes">Runtimes</option>
+            <option value="libraries">Libraries</option>
+            <option value="languages">Languages</option>
+            <option value="browsers">Browsers</option>
+            <option value="os">Operating Systems</option>
+            <option value="all">Everything</option>
+        </select>
+        <button onclick="loadPreset()">Load</button>
+        <button onclick="clearItems()">Clear</button>
+        <div class="graph" id="graph-files"></div>
+        <div class="graph" id="graph-bytes"></div>
+        <div class="graph" id="graph-ratio"></div>
+        <br>
+        "Per Capita" is defined as filecount ÷ size
+        <br>
+        <a href="https://github.com/ravbug/repogolf" target="_blank">View graph source!</a>
     </body>
     <script src="plotly.js" style="width:100%;height:250px;"></script>
     <script>
+        const chooser = document.getElementById('repochooser')
+        const presetchooser = document.getElementById('presetchooser')
+        const items = new Set()
+        let data = {};
+        const presets = {
+            "engines":["RavEngine","godot","UnrealEngine"],
+            "runtimes": ["OpenJDK","DotNET-Runtime"],
+            "libraries": ["boost","Qt 6"],
+            "languages": ["rust","Swift"],
+            "browsers": ["Chromium","WebKit","Firefox"],
+            "os": ["linux"],
+        }
+
+        function clearItems(){
+            items.clear()
+            makeGraphOf(items)
+        }
+
         // file count graph
         async function go(){
-            const data = await((await fetch("output.json")).json())
+            const data_unsorted = await((await fetch("output.json")).json())
+            let keys = Object.keys(data_unsorted)
+            keys.sort(function (a,b){
+                return data_unsorted[a]["count"] < data_unsorted[b]["count"]
+            })
+            for(const item of keys){
+                data[item] = data_unsorted[item]
+            }
+
+            for(const item of Object.keys(data)){
+                chooser.innerHTML += `<option>${item}</option`
+            }
+            loadPreset()
+        }
+
+        function loadPreset(){
+            const item = presetchooser.options[presetchooser.selectedIndex].value
+            if (item == "all"){
+                for(const name in data){
+                    items.add(name)
+                }
+            }
+            else if (item == "top-files"){
+                const keys = Object.keys(data)
+                for(let i = 0; i < 5; i++){
+                    items.add(keys[i])
+                }
+            }
+            else{
+                let presetvals = presets[item]
+                for(const item of presetvals){
+                    items.add(item)
+                }
+            }
+            makeGraphOf(items)
+        }
+
+        function add(){
+            items.add(chooser.options[chooser.selectedIndex].innerHTML)
+            makeGraphOf(items)
+        }
+
+        function del(){
+            items.delete(chooser.options[chooser.selectedIndex].innerHTML)
+            makeGraphOf(items)
+        }
+
+        function makeGraphOf(items){
+            let itemarr = Array.from(items)
             const config = {
-                    responsive: true
-                } 
+                responsive: true
+            } 
             {
                 const counts = []
-                for(const [name,entries] of Object.entries(data)){
-                    counts.push(entries["count"])
+                for(const item of items){
+                    counts.push(data[item]["count"])
                 }
                 Plotly.newPlot( 
                     "graph-files", 
                     [
                     {
-                        x: Object.keys(data),
+                        x: itemarr,
                         y: counts,
                         type: 'bar' 
                     }
@@ -53,14 +141,14 @@
 
             {
                 const counts = []
-                for(const [name,entries] of Object.entries(data)){
-                    counts.push(entries["size"])
+                for(const item of items){
+                    counts.push(data[item]["size"])
                 }
                 Plotly.newPlot( 
                     "graph-bytes", 
                     [
                     {
-                        x: Object.keys(data),
+                        x: itemarr,
                         y: counts,
                         type: 'bar' 
                     }
@@ -74,14 +162,14 @@
 
             {
                 const counts = []
-                for(const [name,entries] of Object.entries(data)){
-                    counts.push(entries["count"] / entries["size"])
+                for(const item of items){
+                    counts.push(data[item]["count"] / data[item]["size"])
                 }
                 Plotly.newPlot( 
                     "graph-ratio", 
                     [
                     {
-                        x: Object.keys(data),
+                        x: itemarr,
                         y: counts,
                         type: 'bar' 
                     }
@@ -93,6 +181,7 @@
                 );
             }
         }
+
         go()
     </script>
 </html>
