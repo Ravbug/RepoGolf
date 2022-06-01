@@ -22,6 +22,10 @@ on:
           - boost
           - openjdk
           - qt6
+          - cpython
+          - kotlin
+          - fsharp
+          - ruby
 
 jobs:
   update-repo:

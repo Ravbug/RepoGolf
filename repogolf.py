@@ -107,6 +107,21 @@ def doQt6():
     simpleDirectory("qt5",{".cpp",".hpp",".cxx", ".cc", ".c",".h",".cmake", ".java", ".cs", ".qml", ".js", ".in", ".m", ".mm", ".S", ".s", ".asm", ".f90", ".metal", ".vert", ".vs", ".frag", ".fs", ".hlsl", ".glsl"},"Qt 6")
     os.system("rm -rf qt5")
 
+def doCPython():
+    simpleGithub("python","cpython",{".c",".h",".cpp",".hpp",".py"},"main")
+
+def doKotlin():
+    simpleGithub("JetBrains","kotlin",{".c",".h",".cpp",".hpp",".kt",".java"})
+
+def doZig():
+    simpleGithub("ziglang","zig",{".c",".h",".cpp",".hpp",".zig",".S",".s",".m",".mm"})
+
+def doFsharp():
+    simpleGithub("dotnet","fsharp",{".c",".h",".cpp",".hpp",".cs",".fsi",".fs",".m",".mm"},"main")
+
+def doRuby():
+    simpleGithub("ruby","ruby",{".c",".h",".cpp",".hpp",".rb",".y"})
+
 # create output file if it does not exist
 if not outfile.exists():
     with open(outfile,"w+") as f:
@@ -133,6 +148,11 @@ fns = {
     "boost" : doBoost,
     "openjdk" : doOpenJDK,
     "qt6" : doQt6,
+    "kotlin" : doKotlin,
+    "cpython" : doCPython,
+    "zig" : doZig, 
+    "fsharp" : doFsharp,
+    "ruby" : doRuby(),
     "all" : doAll
 }
 fn = ""
