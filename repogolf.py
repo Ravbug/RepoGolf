@@ -122,6 +122,9 @@ def doFsharp():
 def doRuby():
     simpleGithub("ruby","ruby",{".c",".h",".cpp",".hpp",".rb",".y"})
 
+def doGolang():
+    simpleGithub("golang","go",{".c",".h",".go",".S",".s",".pl"},nameOverride="golang")
+
 # create output file if it does not exist
 if not outfile.exists():
     with open(outfile,"w+") as f:
@@ -153,6 +156,7 @@ fns = {
     "zig" : doZig, 
     "fsharp" : doFsharp,
     "ruby" : doRuby,
+    "golang" : doGolang,
     "all" : doAll
 }
 fn = ""

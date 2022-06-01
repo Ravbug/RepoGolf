@@ -27,6 +27,7 @@ on:
           - fsharp
           - ruby
           - zig
+          - golang
 
 jobs:
   update-repo:
