@@ -152,7 +152,7 @@ fns = {
     "cpython" : doCPython,
     "zig" : doZig, 
     "fsharp" : doFsharp,
-    "ruby" : doRuby(),
+    "ruby" : doRuby,
     "all" : doAll
 }
 fn = ""
