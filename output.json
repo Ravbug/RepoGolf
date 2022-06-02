@@ -113,6 +113,12 @@
         "ext": ".go, .h, .s, .pl, .c, .S",
         "size": 75275074
     },
+    "gtk": {
+        "count": 2275,
+        "date": "2022-06-02",
+        "ext": ".m, .hpp, .c, .mm, .cpp, .cs, .h",
+        "size": 30397105
+    },
     "kotlin": {
         "count": 45595,
         "date": "2022-06-01",
