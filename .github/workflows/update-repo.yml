@@ -16,7 +16,7 @@ on:
           - Blender
           - gcc
           - swift
-          - chromium
+          - chromeprojs
           - firefox
           - dotnet-runtime
           - boost
@@ -28,6 +28,13 @@ on:
           - ruby
           - zig
           - golang
+          - serenityos
+          - xnu
+          - freebsd
+          - dotnet-maui
+          - wxWidgets
+          - slint
+          - gtk
 
 jobs:
   update-repo:
@@ -46,6 +53,7 @@ jobs:
         run: |
           git config user.name github-actions[bot]
           git config user.email 22283943+github-actions[bot]@users.noreply.github.com
+          git pull
       - name: git commit
         run: git add output.json && git commit -m "Update ${{ github.event.inputs.name }}"
       - name: git push

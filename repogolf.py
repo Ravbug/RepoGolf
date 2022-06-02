@@ -26,7 +26,7 @@ def addToRecord(name,count,size,extensions):
     
     with open(outfile,"w") as f:
         data[name] = {"count":count,"size":size,"ext":", ".join(extensions),"date":f"{date.today()}"}
-        pretty_json = json.dumps(data)
+        pretty_json = json.dumps(data, indent=4, sort_keys=True)
         outfile.write_text(pretty_json)
 
 def downloadGithub(name):
@@ -81,9 +81,10 @@ def doGCC():
 def doSwift():
     simpleGithub("apple","Swift",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".swift", ".m", ".mm"},"main")
 
-def doChromium():
+def doChromeProjs():
     os.system("git -c core.deltaBaseCacheLimit=2g clone https://chromium.googlesource.com/chromium/src.git --depth=1 --recurse-submodules")
-    simpleDirectory("src",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"Chromium")
+    simpleDirectory("src",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"Chromium-All")
+    simpleDirectory("src/chromeos",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"ChromeOS")
     os.system("rm -rf src")
 
 def doFirefox():
@@ -125,6 +126,29 @@ def doRuby():
 def doGolang():
     simpleGithub("golang","go",{".c",".h",".go",".S",".s",".pl"},nameOverride="golang")
 
+def doSerenityOS():
+    simpleGithub("SerenityOS","serenity",{".c",".h",".cpp",".hpp",".ini","CMakeLists.txt",".cmake",".gml",},nameOverride="SerenityOS")
+
+def doXNU():
+    simpleGithub("apple","darwin-xnu",{".c",".h",".cpp",".hpp",".m",".mm",".s",".S",".py",".2"},"main","XNU")
+
+def doFreeBSD():
+    simpleGithub("freebsd","freebsd-src",{".c",".h",".cpp",".hpp",".m",".mm",".s",".S",".py",".2"},"main","FreeBSD")
+
+def doMaui():
+    simpleGithub("dotnet","maui",{".c",".h",".cpp",".hpp",".m",".mm",".cs",".ps1",".java",".css"},"main","Maui")
+
+def dowxWidgets():
+    simpleGithub("wxWidgets","wxWidgets",{".c",".h",".cpp",".hpp",".m",".mm",".cs",".ps1",".java",".css","CMakeLists.txt",".cmake"})
+
+def doSlint():
+    simpleGithub("slint-ui","slint",{".c",".h",".cpp",".hpp",".m",".mm",".cs",".ts",".java",".rs","CMakeLists.txt",".cmake"})
+
+def doGTK():
+    os.system("git clone https://gitlab.gnome.org/GNOME/gtk --depth=1")
+    simpleDirectory("gtk",{".c",".h",".cpp",".hpp",".m",".mm",".cs"},"gtk")
+    os.system("rm -rf gtk")
+
 # create output file if it does not exist
 if not outfile.exists():
     with open(outfile,"w+") as f:
@@ -145,7 +169,7 @@ fns = {
     "Blender" : doBlender,
     "gcc" : doGCC,
     "swift" : doSwift,
-    "chromium" : doChromium,
+    "chromeprojs" : doChromeProjs,
     "firefox" : doFirefox,
     "dotnet-runtime": doDotnetRuntime,
     "boost" : doBoost,
@@ -157,6 +181,13 @@ fns = {
     "fsharp" : doFsharp,
     "ruby" : doRuby,
     "golang" : doGolang,
+    "serenityos" : doSerenityOS,
+    "xnu" : doXNU,
+    "freebsd" : doFreeBSD,
+    "dotnet-maui" : doMaui,
+    "wxWidgets" : dowxWidgets,
+    "slint" : doSlint,
+    "gtk" : doGTK,
     "all" : doAll
 }
 fn = ""

@@ -34,8 +34,8 @@
             <option value="os">Operating Systems</option>
             <option value="all">Everything</option>
         </select>
-        <button onclick="loadPreset()">Load</button>
-        <button onclick="clearItems()">Clear</button>
+        <button onclick="loadPreset()">Append</button><button onclick="replacePreset()">Replace</button>
+        <button onclick="clearItems()">Clear All</button>
         <div class="graph" id="graph-files"></div>
         <div class="graph" id="graph-bytes"></div>
         <div class="graph" id="graph-ratio"></div>
@@ -53,10 +53,10 @@
         const presets = {
             "engines":["RavEngine","godot","UnrealEngine"],
             "runtimes": ["OpenJDK","DotNET-Runtime"],
-            "libraries": ["boost","Qt 6"],
+            "libraries": ["boost","Qt 6","Maui","wxWidgets","slint","gtk"],
             "languages": ["rust","Swift","cpython","kotlin","zig","fsharp","ruby","golang"],
             "browsers": ["Chromium","WebKit","Firefox"],
-            "os": ["linux"],
+            "os": ["linux","SerenityOS","XNU","FreeBSD"],
         }
 
         function clearItems(){
@@ -75,7 +75,10 @@
                 data[item] = data_unsorted[item]
             }
 
-            for(const item of Object.keys(data)){
+            const sorted = Object.keys(data).sort(function(a,b){
+                return a.toLowerCase() > b.toLowerCase()
+            })
+            for(const item of sorted){
                 chooser.innerHTML += `<option>${item}</option`
             }
             loadPreset()
@@ -103,6 +106,11 @@
             makeGraphOf(items)
         }
 
+        function replacePreset(){
+            items.clear()
+            loadPreset()
+        }
+
         function add(){
             items.add(chooser.options[chooser.selectedIndex].innerHTML)
             makeGraphOf(items)
@@ -114,15 +122,20 @@
         }
 
         function makeGraphOf(items){
-            let itemarr = Array.from(items)
             const config = {
                 responsive: true
             } 
             {
                 const counts = []
                 for(const item of items){
-                    counts.push(data[item]["count"])
+                    try{
+                        counts.push(data[item]["count"])
+                    }
+                    catch(e){
+                        items.delete(item)
+                    }
                 }
+                itemarr = Array.from(items)
                 Plotly.newPlot( 
                     "graph-files", 
                     [
@@ -142,7 +155,10 @@
             {
                 const counts = []
                 for(const item of items){
-                    counts.push(data[item]["size"])
+                    try{
+                        counts.push(data[item]["size"])
+                    }
+                    catch(e){}
                 }
                 Plotly.newPlot( 
                     "graph-bytes", 
@@ -163,7 +179,10 @@
             {
                 const counts = []
                 for(const item of items){
-                    counts.push(data[item]["count"] / data[item]["size"])
+                    try{
+                        counts.push(data[item]["count"] / data[item]["size"])
+                    }
+                    catch(e){}
                 }
                 Plotly.newPlot( 
                     "graph-ratio", 
