@@ -5,11 +5,17 @@
         "ext": ".cxx, .hlsl, .metal, .sh, .cc, .cpp, .in, .hpp, .vs, .c, .fsh, .vert, .frag, .cs, .cmake, .glsl, .h, .fs, .vsh",
         "size": 117426112
     },
+    "ChromeOS": {
+        "count": 1587,
+        "date": "2022-06-02",
+        "ext": ".vert, .h, .cc, .cpp, .cmake, .sh, .c, .cs, .in, .frag, .hpp, .vs, .cxx, .fs, .metal, .glsl",
+        "size": 10373691
+    },
     "Chromium-All": {
-        "count": 102021,
-        "date": "2022-05-28",
-        "ext": ".vs, .vert, .in, .cc, .cxx, .c, .sh, .metal, .fs, .cmake, .cpp, .cs, .frag, .hpp, .glsl, .h",
-        "size": 826568785
+        "count": 102042,
+        "date": "2022-06-02",
+        "ext": ".vert, .h, .cc, .cpp, .cmake, .sh, .c, .cs, .in, .frag, .hpp, .vs, .cxx, .fs, .metal, .glsl",
+        "size": 826575646
     },
     "DotNET-Runtime": {
         "count": 44621,
