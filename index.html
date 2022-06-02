@@ -125,15 +125,15 @@
             const config = {
                 responsive: true
             } 
+            for(const item of Array.from(items)){
+                if (!data.hasOwnProperty(item)){
+                    items.delete(item)
+                }
+            }
             {
                 const counts = []
                 for(const item of items){
-                    try{
-                        counts.push(data[item]["count"])
-                    }
-                    catch(e){
-                        items.delete(item)
-                    }
+                    counts.push(data[item]["count"])    
                 }
                 itemarr = Array.from(items)
                 Plotly.newPlot( 
@@ -155,10 +155,7 @@
             {
                 const counts = []
                 for(const item of items){
-                    try{
-                        counts.push(data[item]["size"])
-                    }
-                    catch(e){}
+                    counts.push(data[item]["size"])
                 }
                 Plotly.newPlot( 
                     "graph-bytes", 
@@ -179,10 +176,7 @@
             {
                 const counts = []
                 for(const item of items){
-                    try{
-                        counts.push(data[item]["count"] / data[item]["size"])
-                    }
-                    catch(e){}
+                    counts.push(data[item]["count"] / data[item]["size"])
                 }
                 Plotly.newPlot( 
                     "graph-ratio", 
