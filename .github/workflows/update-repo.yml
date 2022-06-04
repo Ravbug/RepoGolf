@@ -33,7 +33,6 @@ on:
           - freebsd
           - dotnet-maui
           - wxWidgets
-          - slint
           - gtk
           - php
           - perl
@@ -43,6 +42,8 @@ on:
           - mysql
           - posgres
           - v8
+          - electron
+          - juce
 
 jobs:
   update-repo:

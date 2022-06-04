@@ -35,6 +35,12 @@
         "ext": ".cpp, .cs, .csproj, .c, .h, .cc, .hpp, .cxx, .in",
         "size": 545322948
     },
+    "Electron": {
+        "count": 1663,
+        "date": "2022-06-03",
+        "ext": ".json, .cpp, .opts, .h, .c, .hpp, .ts, .js, .lock, .map",
+        "size": 5289534
+    },
     "Firefox": {
         "count": 37969,
         "date": "2022-05-28",
@@ -208,12 +214,6 @@
         "date": "2022-05-31",
         "ext": ".toml, .sh, .rs, .rust",
         "size": 53498193
-    },
-    "slint": {
-        "count": 308,
-        "date": "2022-06-01",
-        "ext": ".cpp, .java, .h, .hpp, .ts, .mm, .m, .c, CMakeLists.txt, .cmake, .cs, .rs",
-        "size": 3384559
     },
     "wxWidgets": {
         "count": 3988,

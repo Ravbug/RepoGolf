@@ -45,6 +45,14 @@ def simpleGithub(account,name,exts,branch="master",nameOverride=None,dirOverride
     downloadGithub(f"{account}/{name}")
     simpleDirectory(f"{name}-{branch}" if not dirOverride else dirOverride,exts,name,nameOverride)
 
+
+def simpleNPM(name,exts,nameOverride=None):
+    os.mkdir("npm")
+    os.chdir("npm")
+    os.system(f"npm install {name} --production=false")
+    os.chdir("..")
+    simpleDirectory("npm",exts,name,nameOverride)
+
 # ================================= Sizing functions ==========================================
 
 
@@ -85,7 +93,7 @@ def doSwift():
 def doChromeProjs():
     os.system("git -c core.deltaBaseCacheLimit=2g clone https://chromium.googlesource.com/chromium/src.git --depth=1 --recurse-submodules")
     simpleDirectory("src",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"Chromium-All")
-    simpleDirectory("src/chromiumos",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"ChromeOS")
+    simpleDirectory("src/chromeos",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"ChromeOS")
     os.system("rm -rf src")
 
 def doFirefox():
@@ -142,9 +150,6 @@ def doMaui():
 def dowxWidgets():
     simpleGithub("wxWidgets","wxWidgets",{".c",".h",".cpp",".hpp",".m",".mm",".cs",".ps1",".java",".css","CMakeLists.txt",".cmake"})
 
-def doSlint():
-    simpleGithub("slint-ui","slint",{".c",".h",".cpp",".hpp",".m",".mm",".cs",".ts",".java",".rs","CMakeLists.txt",".cmake"})
-
 def doGTK():
     os.system("git clone https://gitlab.gnome.org/GNOME/gtk --depth=1")
     simpleDirectory("gtk",{".c",".h",".cpp",".hpp",".m",".mm",".cs"},"gtk")
@@ -175,6 +180,12 @@ def doV8():
     os.system("git clone https://chromium.googlesource.com/v8/v8.git --depth=1 --recurse-submodules")
     simpleDirectory("v8",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"Chromium-V8")
     os.system("rm -rf v8")
+
+def doElectron():
+    simpleNPM("electron",{".js",".json",".c",".cpp",".hpp",".h",".map",".ts",".lock",".opts"},"Electron")
+
+def doJUCE():
+    simpleGithub("juce-framework","JUCE",{".cpp",".hpp",".cxx", ".cc", ".c",".h",".cmake", ".java", ".cs", ".qml", ".js", ".in", ".m", ".mm", ".S", ".s", ".asm", ".f90", ".metal", ".vert", ".vs", ".frag", ".fs", ".hlsl", ".glsl"})
 
 # create output file if it does not exist
 if not outfile.exists():
@@ -213,7 +224,6 @@ fns = {
     "freebsd" : doFreeBSD,
     "dotnet-maui" : doMaui,
     "wxWidgets" : dowxWidgets,
-    "slint" : doSlint,
     "gtk" : doGTK,
     "php" : doPHP,
     "perl" : doPerl,
@@ -222,6 +232,8 @@ fns = {
     "foundationdb" : doFoundationDB,
     "mysql" : doMySQL,
     "postgres" : doPostgres,
+    "electron" : doElectron,
+    "juce" : doJUCE,
     "v8" : doV8,
 }
 fn = ""
