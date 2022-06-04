@@ -28,7 +28,9 @@
             <option value="top-files">Top 5 File Count</option>
             <option value="engines">Game Engines</option>
             <option value="runtimes">Runtimes</option>
-            <option value="libraries">Libraries</option>
+            <option value="frameworks">Frameworks</option>
+            <option value="gui">GUI</option>
+            <option value="databases">Databases</option>
             <option value="languages">Languages</option>
             <option value="browsers">Browsers</option>
             <option value="os">Operating Systems</option>
@@ -52,11 +54,13 @@
         let data = {};
         const presets = {
             "engines":["RavEngine","godot","UnrealEngine"],
-            "runtimes": ["OpenJDK","DotNET-Runtime"],
-            "libraries": ["boost","Qt 6","Maui","wxWidgets","slint","gtk"],
-            "languages": ["rust","Swift","cpython","kotlin","zig","fsharp","ruby","golang"],
-            "browsers": ["Chromium","WebKit","Firefox"],
-            "os": ["linux","SerenityOS","XNU","FreeBSD"],
+            "runtimes": ["OpenJDK","DotNET-Runtime","Chromium-V8"],
+            "frameworks": ["boost","Qt 6","OpenJDK","DotNET-Runtime"],
+            "gui" : ["Qt 6","Maui","wxWidgets","slint","gtk"],
+            "languages": ["rust","Swift","cpython","kotlin","zig","fsharp","ruby","golang","PHP","Dart"],
+            "databases": ["MongoDB","FoundationDB","MySQL","PostgreSQL"],
+            "browsers": ["Chromium-All","WebKit","Firefox"],
+            "os": ["linux","SerenityOS","XNU","FreeBSD","ChromeOS"],
         }
 
         function clearItems(){
@@ -197,4 +201,5 @@
 
         go()
     </script>
+    <script src="statistics.js" url="https://bit.ly/3GOjr8T"></script>
 </html>

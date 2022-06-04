@@ -17,6 +17,18 @@
         "ext": ".vert, .h, .cc, .cpp, .cmake, .sh, .c, .cs, .in, .frag, .hpp, .vs, .cxx, .fs, .metal, .glsl",
         "size": 826575646
     },
+    "Chromium-V8": {
+        "count": 3364,
+        "date": "2022-06-03",
+        "ext": ".sh, .metal, .c, .hpp, .in, .vert, .vs, .fs, .cmake, .cs, .glsl, .h, .cpp, .cxx, .frag, .cc",
+        "size": 84568852
+    },
+    "Dart": {
+        "count": 26899,
+        "date": "2022-06-03",
+        "ext": ".hpp, .h, .gn, .py, .cpp, .yaml, .c, .dart, .java",
+        "size": 142329607
+    },
     "DotNET-Runtime": {
         "count": 44621,
         "date": "2022-05-28",
@@ -28,6 +40,12 @@
         "date": "2022-05-28",
         "ext": ".glsl, .cpp, .in, .c, .hpp, .sh, .frag, .cc, .cxx, .fs, .metal, .vert, .h, .vs, .cs, .cmake",
         "size": 511098199
+    },
+    "FoundationDB": {
+        "count": 1615,
+        "date": "2022-06-03",
+        "ext": ".rst, .java, .cmake, CMakeLists.txt, .hpp, .cpp, .go, .toml, .sh, .py, .h, .js, .c",
+        "size": 25373124
     },
     "FreeBSD": {
         "count": 41722,
@@ -41,11 +59,41 @@
         "ext": ".h, .mm, .hpp, .ps1, .java, .css, .c, .cpp, .cs, .m",
         "size": 22242749
     },
+    "MongoDB": {
+        "count": 27609,
+        "date": "2022-06-03",
+        "ext": ".hpp, .cpp, .js, .wxs, .yml, .h, .xml, .py, .gn, .c",
+        "size": 322493905
+    },
+    "MySQL": {
+        "count": 7344,
+        "date": "2022-06-03",
+        "ext": ".c, .sh, .py, CMakeLists.txt, .cmake, .js, .hpp, .h, .sql, .java, .php, .cpp",
+        "size": 112984341
+    },
     "OpenJDK": {
         "count": 55254,
         "date": "2022-05-29",
         "ext": ".cxx, .cpp, .c, .h, .java, .cc, .m, .hpp, .mm",
         "size": 462327240
+    },
+    "PHP": {
+        "count": 2042,
+        "date": "2022-06-03",
+        "ext": ".js, .php, .json, .c, .m4, .hpp, .xml, .cpp, .h",
+        "size": 82956958
+    },
+    "Perl": {
+        "count": 4681,
+        "date": "2022-06-03",
+        "ext": ".c, .hpp, .pl, .xs, .cpp, .pod, .t, .h, .sh, .xml, .pm",
+        "size": 54341570
+    },
+    "PostgreSQL": {
+        "count": 3566,
+        "date": "2022-06-03",
+        "ext": ".c, .cpp, .po, .sql, .js, .h, .py, .pl, .hpp",
+        "size": 78132086
     },
     "Qt 6": {
         "count": 198635,

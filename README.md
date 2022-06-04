@@ -9,4 +9,8 @@ You can view a webpage with charts here: [https://www.ravbug.com/repogolf](https
 3. See `output.json` for the data
 
 ### Contributing
-If you would like to add a project to the script, please make a PR. However, note that I may not accept all PRs. 
+If you would like to add a project to the dataset, please make a PR. 
+
+If you notice that a count is incorrect, please make an Issue or submit a PR with the fix.
+
+If a count is out of date and should be refreshed, please make an Issue.

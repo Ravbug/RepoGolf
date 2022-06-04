@@ -35,6 +35,14 @@ on:
           - wxWidgets
           - slint
           - gtk
+          - php
+          - perl
+          - dart
+          - mongodb
+          - foundationdb
+          - mysql
+          - posgres
+          - v8
 
 jobs:
   update-repo:

@@ -1,3 +1,5 @@
+#!python3
+
 from itertools import count
 from pathlib import Path
 import glob
@@ -36,13 +38,12 @@ def simpleDirectory(dir,exts,name,nameOverride=None):
     if not Path(f"{dir}").exists():
         raise RuntimeError(f"Directory {dir} not found, either due to download error or bug")
     fcount, fsize = countFiles(dir,exts)
-    os.system(f"rm -rf {name}")
+    os.system(f"rm -rf {dir}")
     addToRecord(name if not nameOverride else nameOverride,fcount,fsize,exts)
 
-def simpleGithub(account,name,exts,branch="master",nameOverride=None):
+def simpleGithub(account,name,exts,branch="master",nameOverride=None,dirOverride=None):
     downloadGithub(f"{account}/{name}")
-    simpleDirectory(f"{name}-{branch}",exts,name,nameOverride)
-
+    simpleDirectory(f"{name}-{branch}" if not dirOverride else dirOverride,exts,name,nameOverride)
 
 # ================================= Sizing functions ==========================================
 
@@ -84,7 +85,7 @@ def doSwift():
 def doChromeProjs():
     os.system("git -c core.deltaBaseCacheLimit=2g clone https://chromium.googlesource.com/chromium/src.git --depth=1 --recurse-submodules")
     simpleDirectory("src",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"Chromium-All")
-    simpleDirectory("src/chromeos",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"ChromeOS")
+    simpleDirectory("src/chromiumos",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"ChromeOS")
     os.system("rm -rf src")
 
 def doFirefox():
@@ -149,6 +150,32 @@ def doGTK():
     simpleDirectory("gtk",{".c",".h",".cpp",".hpp",".m",".mm",".cs"},"gtk")
     os.system("rm -rf gtk")
 
+def doPHP():
+    simpleGithub("php","php-src",{".c",".h",".cpp",".hpp",".php",".m4",".js",".json",".xml"},nameOverride="PHP")
+
+def doPerl():
+    simpleGithub("Perl","perl5",{".c",".h",".cpp",".hpp",".pl",".pm",".t",".pod",".xml",".xs",".sh"},"blead","Perl")
+
+def doDart():
+    simpleGithub("dart-lang","sdk",{".c",".h",".cpp",".hpp",".dart",".py",".gn",".java",".yaml"},"main","Dart", dirOverride="sdk-master")
+
+def doMongo():
+    simpleGithub("mongodb","mongo",{".c",".h",".cpp",".hpp",".js",".py",".gn",".xml",".wxs",".yml"},nameOverride="MongoDB")
+
+def doFoundationDB():
+    simpleGithub("apple","foundationdb",{".c",".h",".cpp",".hpp",".js",".py",".go",".java",".toml",".rst",".sh","CMakeLists.txt",".cmake"},"main","FoundationDB")
+
+def doMySQL():
+    simpleGithub("mysql","mysql-server",{".c",".h",".cpp",".hpp",".js",".py",".java",".sql",".php",".sh","CMakeLists.txt",".cmake"},"8.0","MySQL")
+
+def doPostgres():
+    simpleGithub("postgres","postgres",{".c",".h",".cpp",".hpp",".js",".pl",".sql",".py",".po"},nameOverride="PostgreSQL")
+
+def doV8():
+    os.system("git clone https://chromium.googlesource.com/v8/v8.git --depth=1 --recurse-submodules")
+    simpleDirectory("v8",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"Chromium-V8")
+    os.system("rm -rf v8")
+
 # create output file if it does not exist
 if not outfile.exists():
     with open(outfile,"w+") as f:
@@ -188,13 +215,22 @@ fns = {
     "wxWidgets" : dowxWidgets,
     "slint" : doSlint,
     "gtk" : doGTK,
-    "all" : doAll
+    "php" : doPHP,
+    "perl" : doPerl,
+    "dart" : doDart,
+    "mongodb" : doMongo,
+    "foundationdb" : doFoundationDB,
+    "mysql" : doMySQL,
+    "postgres" : doPostgres,
+    "v8" : doV8,
 }
 fn = ""
 try:
+    if (len(sys.argv) < 2):
+        raise KeyError();
     fn = fns[sys.argv[1]]
 except KeyError:
-    print(f"{sys.argv[1]}: not a known codebase. Known codebases:")
+    print(f"Not a known codebase. Known codebases:")
     for name in fns:
         print(name)
     exit(1)
