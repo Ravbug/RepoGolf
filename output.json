@@ -59,6 +59,12 @@
         "ext": ".mm, .cpp, .py, .m, .s, .hpp, .S, .c, .2, .h",
         "size": 695136099
     },
+    "JUCE": {
+        "count": 2629,
+        "date": "2022-06-04",
+        "ext": ".vs, .java, .qml, .s, .m, .mm, .f90, .fs, .cs, .c, .h, .hpp, .asm, .metal, .hlsl, .cmake, .glsl, .vert, .js, .cc, .cxx, .S, .in, .cpp, .frag",
+        "size": 36772612
+    },
     "Maui": {
         "count": 7717,
         "date": "2022-06-01",
