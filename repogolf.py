@@ -187,6 +187,9 @@ def doElectron():
 def doJUCE():
     simpleGithub("juce-framework","JUCE",{".cpp",".hpp",".cxx", ".cc", ".c",".h",".cmake", ".java", ".cs", ".qml", ".js", ".in", ".m", ".mm", ".S", ".s", ".asm", ".f90", ".metal", ".vert", ".vs", ".frag", ".fs", ".hlsl", ".glsl"})
 
+def doSqlite():
+    simpleGithub("sqlite","sqlite",{".h",".c",".tcl",".cpp",".hpp",".js"})
+
 # create output file if it does not exist
 if not outfile.exists():
     with open(outfile,"w+") as f:
@@ -235,6 +238,7 @@ fns = {
     "electron" : doElectron,
     "juce" : doJUCE,
     "v8" : doV8,
+    "sqlite" : doSqlite,
 }
 fn = ""
 try:

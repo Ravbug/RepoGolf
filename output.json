@@ -221,6 +221,12 @@
         "ext": ".toml, .sh, .rs, .rust",
         "size": 53498193
     },
+    "sqlite": {
+        "count": 504,
+        "date": "2022-09-20",
+        "ext": ".c, .js, .cpp, .tcl, .h, .hpp",
+        "size": 14176613
+    },
     "wxWidgets": {
         "count": 3988,
         "date": "2022-06-01",
