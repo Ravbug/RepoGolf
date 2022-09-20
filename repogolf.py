@@ -190,6 +190,13 @@ def doJUCE():
 def doSqlite():
     simpleGithub("sqlite","sqlite",{".h",".c",".tcl",".cpp",".hpp",".js"})
 
+def doReact():
+    downloadGithub("facebook/react")
+    os.chdir("react-main")
+    os.system("yarn")
+    os.chdir("..")
+    simpleDirectory("react-main", {".js",".json",".c",".cpp",".hpp",".h",".map",".ts",".lock",".opts",".css",".rs",".html"},"React")
+
 # create output file if it does not exist
 if not outfile.exists():
     with open(outfile,"w+") as f:
@@ -239,6 +246,7 @@ fns = {
     "juce" : doJUCE,
     "v8" : doV8,
     "sqlite" : doSqlite,
+    "React" : doReact,
 }
 fn = ""
 try:

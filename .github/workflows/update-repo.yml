@@ -45,6 +45,7 @@ on:
           - electron
           - juce
           - sqlite
+          - React
 
 jobs:
   update-repo:

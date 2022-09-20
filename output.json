@@ -119,6 +119,12 @@
         "ext": ".h, .c, .cpp, .in, .cxx, .cs, .cc, .sh, .cmake, .hpp",
         "size": 307910240
     },
+    "React": {
+        "count": 88307,
+        "date": "2022-09-20",
+        "ext": ".rs, .lock, .cpp, .h, .ts, .html, .js, .map, .opts, .hpp, .json, .c, .css",
+        "size": 502247916
+    },
     "SerenityOS": {
         "count": 4986,
         "date": "2022-06-01",
