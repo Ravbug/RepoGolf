@@ -216,10 +216,10 @@
         "size": 146897757
     },
     "linux": {
-        "count": 53677,
-        "date": "2022-05-27",
-        "ext": ".hlsl, makefile, .frag, .cxx, .sh, .hpp, .fs, .vert, .cpp, .cc, .asm, .glsl, .c, .in, .cs, .vsh, .h, .fsh, .cmake, .vs",
-        "size": 991503042
+        "count": 53689,
+        "date": "2022-09-22",
+        "ext": ".c, .vs, .cmake, .cpp, makefile, .hpp, .sh, .fsh, .cs, .in, .fs, .h, .cxx, .vsh, .hlsl, .glsl, .asm, .cc, .vert, .frag",
+        "size": 991528432
     },
     "llvm-project": {
         "count": 76813,
