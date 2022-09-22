@@ -42,10 +42,11 @@ on:
           - mysql
           - posgres
           - v8
-          - electron
+          - Electron
           - juce
           - sqlite
           - React
+          - NodeJS
 
 jobs:
   update-repo:

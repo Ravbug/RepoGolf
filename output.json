@@ -36,10 +36,10 @@
         "size": 545322948
     },
     "Electron": {
-        "count": 1663,
-        "date": "2022-06-03",
-        "ext": ".json, .cpp, .opts, .h, .c, .hpp, .ts, .js, .lock, .map",
-        "size": 5289534
+        "count": 21844,
+        "date": "2022-09-22",
+        "ext": ".mm, .py, .h, .hpp, .c, .map, .lock, .js, .cpp, .opts, .json, .ts",
+        "size": 213652782
     },
     "Firefox": {
         "count": 37969,
@@ -82,6 +82,12 @@
         "date": "2022-06-03",
         "ext": ".c, .sh, .py, CMakeLists.txt, .cmake, .js, .hpp, .h, .sql, .java, .php, .cpp",
         "size": 112984341
+    },
+    "NodeJS": {
+        "count": 27684,
+        "date": "2022-09-22",
+        "ext": ".c, .h, .pod, .map, .html, .S, .js, .ts, .lock, .py, .opts, .hpp, .cpp, .json",
+        "size": 259881329
     },
     "OpenJDK": {
         "count": 55254,

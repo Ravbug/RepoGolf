@@ -32,7 +32,7 @@ def addToRecord(name,count,size,extensions):
         outfile.write_text(pretty_json)
 
 def downloadGithub(name):
-    os.system(f"curl -L \"https://github.com/{name}/archive/refs/heads/master.zip\" -o archive.zip && unzip archive.zip > /dev/null && rm archive.zip")
+    os.system(f"curl -L \"https://github.com/{name}/archive/refs/heads/master.zip\" -o archive.zip ; unzip archive.zip > /dev/null ; rm archive.zip")
 
 def simpleDirectory(dir,exts,name,nameOverride=None):
     if not Path(f"{dir}").exists():
@@ -182,7 +182,11 @@ def doV8():
     os.system("rm -rf v8")
 
 def doElectron():
-    simpleNPM("electron",{".js",".json",".c",".cpp",".hpp",".h",".map",".ts",".lock",".opts"},"Electron")
+    downloadGithub("electron/electron")
+    os.chdir("electron-main")
+    os.system("yarn")
+    os.chdir("..")
+    simpleDirectory("electron-main",{".js",".json",".c",".cpp",".hpp",".h",".map",".ts",".lock",".opts",".mm",".py"},"Electron")
 
 def doJUCE():
     simpleGithub("juce-framework","JUCE",{".cpp",".hpp",".cxx", ".cc", ".c",".h",".cmake", ".java", ".cs", ".qml", ".js", ".in", ".m", ".mm", ".S", ".s", ".asm", ".f90", ".metal", ".vert", ".vs", ".frag", ".fs", ".hlsl", ".glsl"})
@@ -196,6 +200,13 @@ def doReact():
     os.system("yarn")
     os.chdir("..")
     simpleDirectory("react-main", {".js",".json",".c",".cpp",".hpp",".h",".map",".ts",".lock",".opts",".css",".rs",".html"},"React")
+
+def doNodeJS():
+    downloadGithub("nodejs/node")
+    os.chdir("node-main")
+    os.system("yarn")
+    os.chdir("..")
+    simpleDirectory("node-main",{".js",".json",".c",".cpp",".hpp",".h",".map",".ts",".lock",".opts",".py",".html",".pod",".S"},"NodeJS")
 
 # create output file if it does not exist
 if not outfile.exists():
@@ -242,11 +253,12 @@ fns = {
     "foundationdb" : doFoundationDB,
     "mysql" : doMySQL,
     "postgres" : doPostgres,
-    "electron" : doElectron,
+    "Electron" : doElectron,
     "juce" : doJUCE,
     "v8" : doV8,
     "sqlite" : doSqlite,
     "React" : doReact,
+    "NodeJS" : doNodeJS,
 }
 fn = ""
 try:
