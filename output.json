@@ -149,6 +149,12 @@
         "ext": ".hlsl, .h, .hpp, .fs, .glsl, .cmake, .fsh, .metal, .c, .vsh, .cxx, .sh, .vs, .vert, .in, .cc, .cs, .frag, .cpp",
         "size": 1326882805
     },
+    "Visual Studio Code": {
+        "count": 62847,
+        "date": "2022-09-22",
+        "ext": ".json, .ts, .yml, .c, .map, .h, .rs, .html, .hpp, .opts, .js, .cpp, .css, .lock",
+        "size": 916318843
+    },
     "WebKit": {
         "count": 35933,
         "date": "2022-05-27",
