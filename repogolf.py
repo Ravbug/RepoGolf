@@ -208,6 +208,13 @@ def doNodeJS():
     os.chdir("..")
     simpleDirectory("node-main",{".js",".json",".c",".cpp",".hpp",".h",".map",".ts",".lock",".opts",".py",".html",".pod",".S"},"NodeJS")
 
+def doVSCode():
+    downloadGithub("microsoft/vscode")
+    os.chdir("vscode-main")
+    os.system("yarn")
+    os.chdir("..")
+    simpleDirectory("vscode-main", {".js",".json",".c",".cpp",".hpp",".h",".map",".ts",".lock",".opts",".css",".rs",".html",".yml"},"Visual Studio Code")
+
 # create output file if it does not exist
 if not outfile.exists():
     with open(outfile,"w+") as f:
@@ -259,6 +266,7 @@ fns = {
     "sqlite" : doSqlite,
     "React" : doReact,
     "NodeJS" : doNodeJS,
+    "VSCode" : doVSCode,
 }
 fn = ""
 try:

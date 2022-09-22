@@ -47,6 +47,7 @@ on:
           - sqlite
           - React
           - NodeJS
+          - VSCode
 
 jobs:
   update-repo:
