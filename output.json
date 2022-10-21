@@ -6,10 +6,10 @@
         "size": 415240892
     },
     "BabylonNative": {
-        "count": 813,
+        "count": 8498,
         "date": "2022-10-21",
-        "ext": ".comp, .js, .cc, .py, .mm, .frag, .cpp, .xml, .lua, .fx, .scss, .cs, .tsx, .cmake, .html, .vert, .in, .c, .sh, .java, .hpp, .m, .h, .cxx, .ts",
-        "size": 35389011
+        "ext": ".ts, .h, .py, .comp, .lua, .xml, .cmake, .cc, .tsx, .scss, .hpp, .java, .sh, .c, .cs, .vert, .js, .m, .cxx, .fx, .frag, .in, .mm, .html, .cpp",
+        "size": 129661986
     },
     "Blender": {
         "count": 8645,
