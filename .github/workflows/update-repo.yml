@@ -48,6 +48,10 @@ on:
           - React
           - NodeJS
           - VSCode
+          - Lumberyard
+          - Babylon.js
+          - BabylonNative
+          - Cocos2Dx
 
 jobs:
   update-repo:

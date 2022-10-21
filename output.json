@@ -65,6 +65,12 @@
         "ext": ".vs, .java, .qml, .s, .m, .mm, .f90, .fs, .cs, .c, .h, .hpp, .asm, .metal, .hlsl, .cmake, .glsl, .vert, .js, .cc, .cxx, .S, .in, .cpp, .frag",
         "size": 36772612
     },
+    "Lumberyard": {
+        "count": 35964,
+        "date": "2022-10-21",
+        "ext": ".hpp, .cmake, .py, .c, .html, .h, .in, .m, .cc, .sh, .mm, .xml, .cs, .cpp, .cxx",
+        "size": 410216367
+    },
     "Maui": {
         "count": 7717,
         "date": "2022-06-01",
