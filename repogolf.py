@@ -199,10 +199,10 @@ def doLumberyard():
 
 def doCocos2Dx():
     downloadGithub("cocos2d/cocos2d-x")
-    os.chdir("cocos2d-x-v4")
+    os.chdir("cocos2d-x-4")
     os.system("python3 download-deps.py")
     os.chdir("..")
-    simpleDirectory("cocos2d-x-v4", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua",".vert",".frag",".comp"},"Cocos2d-x")
+    simpleDirectory("cocos2d-x-4", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua",".vert",".frag",".comp"},"Cocos2d-x")
 
 def doBabylon():
     downloadGithub("BabylonJS/Babylon.js")
