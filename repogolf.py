@@ -209,7 +209,7 @@ def doBabylon():
     os.chdir("Babylon.js-master")
     os.system("npm install")
     os.chdir("..")
-    simpleDirectory("Babylon.js", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua",".vert",".frag",".comp",".js",".ts",".html",".java",".fx",".tsx",".scss"},"Babylon.js")
+    simpleDirectory("Babylon.js-master", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua",".vert",".frag",".comp",".js",".ts",".html",".java",".fx",".tsx",".scss"},"Babylon.js")
 
 def doBabylonNative():
     os.system("git clone https://github.com/BabylonJS/BabylonNative.git --depth=1 --recurse-submodules")
