@@ -202,21 +202,21 @@ def doCocos2Dx():
     os.chdir("cocos2d-x-v4")
     os.system("python3 download-deps.py")
     os.chdir("..")
-    simpleDirectory("cocos2d-x-v4", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua",".vert",".frag",".comp"},nameOverride="Cocos2D-x")
+    simpleDirectory("cocos2d-x-v4", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua",".vert",".frag",".comp"},"Cocos2d-x")
 
 def doBabylon():
     downloadGithub("BabylonJS/Babylon.js")
     os.chdir("Babylon.js-master")
     os.system("npm install")
     os.chdir("..")
-    simpleDirectory("Babylon.js", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua",".vert",".frag",".comp",".js",".ts",".html",".java",".fx",".tsx",".scss"})
+    simpleDirectory("Babylon.js", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua",".vert",".frag",".comp",".js",".ts",".html",".java",".fx",".tsx",".scss"},"Babylon.js")
 
 def doBabylonNative():
     os.system("git clone https://github.com/BabylonJS/BabylonNative.git --depth=1 --recurse-submodules")
     os.chdir("BabylonNative/Apps")
     os.system("npm install")
     os.chdir("../..")
-    simpleDirectory("BabylonNative", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua",".vert",".frag",".comp",".js",".ts",".html",".java",".fx",".tsx",".scss"})
+    simpleDirectory("BabylonNative", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua",".vert",".frag",".comp",".js",".ts",".html",".java",".fx",".tsx",".scss"},"BabylonNative")
 
 def doReact():
     downloadGithub("facebook/react")
@@ -292,7 +292,7 @@ fns = {
     "NodeJS" : doNodeJS,
     "VSCode" : doVSCode,
     "Lumberyard" : doLumberyard,
-    "Cocos2d-X" : doCocos2Dx,
+    "Cocos2d-x" : doCocos2Dx,
     "Babylon.js" : doBabylon,
     "BabylonNative": doBabylonNative,
 }

@@ -51,7 +51,7 @@ on:
           - Lumberyard
           - Babylon.js
           - BabylonNative
-          - Cocos2Dx
+          - Cocos2d-x
 
 jobs:
   update-repo:
