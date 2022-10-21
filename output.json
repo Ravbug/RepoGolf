@@ -35,6 +35,12 @@
         "ext": ".sh, .metal, .c, .hpp, .in, .vert, .vs, .fs, .cmake, .cs, .glsl, .h, .cpp, .cxx, .frag, .cc",
         "size": 84568852
     },
+    "Cocos2d-x": {
+        "count": 4185,
+        "date": "2022-10-21",
+        "ext": ".hpp, .mm, .html, .m, .comp, .cc, .in, .py, .xml, .cxx, .vert, .cpp, .lua, .h, .sh, .cmake, .c, .cs, .frag",
+        "size": 59462859
+    },
     "Dart": {
         "count": 26899,
         "date": "2022-06-03",
