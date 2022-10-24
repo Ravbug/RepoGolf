@@ -197,6 +197,9 @@ def doSqlite():
 def doLumberyard():
     simpleGithub("aws","lumberyard",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m"},nameOverride="Lumberyard")
 
+def doO3de():
+    simpleGithub("o3de","o3de",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m", ".lua", ".prefab", ".py", ".cmake"},nameOverride="o3de")
+
 def doCocos2Dx():
     downloadGithub("cocos2d/cocos2d-x")
     os.chdir("cocos2d-x-4")
@@ -295,6 +298,7 @@ fns = {
     "Cocos2d-x" : doCocos2Dx,
     "Babylon.js" : doBabylon,
     "BabylonNative": doBabylonNative,
+    "o3de" : doO3de,
 }
 fn = ""
 try:

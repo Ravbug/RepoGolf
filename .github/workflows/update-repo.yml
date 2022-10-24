@@ -52,6 +52,7 @@ on:
           - Babylon.js
           - BabylonNative
           - Cocos2d-x
+          - o3de
 
 jobs:
   update-repo:
