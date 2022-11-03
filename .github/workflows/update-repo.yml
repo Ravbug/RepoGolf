@@ -53,6 +53,8 @@ on:
           - BabylonNative
           - Cocos2d-x
           - o3de
+          - ArduPilot
+          - PixHawk4
 
 jobs:
   update-repo:

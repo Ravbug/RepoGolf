@@ -221,6 +221,14 @@ def doBabylonNative():
     os.chdir("../..")
     simpleDirectory("BabylonNative", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua",".vert",".frag",".comp",".js",".ts",".html",".java",".fx",".tsx",".scss"},"BabylonNative")
 
+def doArduPilot():
+    os.system("git clone https://github.com/ArduPilot/ardupilot.git --depth=1 --recurse-submodules")
+    simpleDirectory("ardupilot", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua"},"ArduPilot")
+
+def doPX4():
+    os.system("git clone https://github.com/PX4/PX4-Autopilot.git --depth=1 --recurse-submodules")
+    simpleDirectory("PX4-Autopilot", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua",".ld"},"PixHawk4")
+
 def doReact():
     downloadGithub("facebook/react")
     os.chdir("react-main")
@@ -299,6 +307,8 @@ fns = {
     "Babylon.js" : doBabylon,
     "BabylonNative": doBabylonNative,
     "o3de" : doO3de,
+    "ArduPilot" : doArduPilot,
+    "PixHawk4" : doPX4,
 }
 fn = ""
 try:
