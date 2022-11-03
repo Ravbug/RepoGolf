@@ -137,6 +137,12 @@
         "ext": ".c, .hpp, .pl, .xs, .cpp, .pod, .t, .h, .sh, .xml, .pm",
         "size": 54341570
     },
+    "PixHawk4": {
+        "count": 18278,
+        "date": "2022-11-03",
+        "ext": ".py, .h, .lua, .cs, .hpp, .in, .cpp, .html, .ld, .m, .sh, .cmake, .xml, .c, .mm, .cxx, .cc",
+        "size": 196980943
+    },
     "PostgreSQL": {
         "count": 3566,
         "date": "2022-06-03",
