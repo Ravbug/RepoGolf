@@ -251,6 +251,12 @@
         "ext": ".cc, .cxx, .in, .c, .asm, .py, .hlsl, .h, .sh, .vs, .cmake, .fsh, .fs, .ll, .hpp, .frag, .vert, .glsl, .vsh, CMakeLists.txt, makefile, .cpp, .cs",
         "size": 797443375
     },
+    "o3de": {
+        "count": 19047,
+        "date": "2022-10-24",
+        "ext": ".prefab, .in, .m, .cmake, .h, .cc, .hpp, .cpp, .cs, .sh, .mm, .lua, .c, .xml, .cxx, .py, .html",
+        "size": 156450775
+    },
     "ruby": {
         "count": 8612,
         "date": "2022-06-01",
