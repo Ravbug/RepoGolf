@@ -7,5 +7,5 @@ const presets = {
     "databases": ["MongoDB","FoundationDB","MySQL","PostgreSQL","sqlite"],
     "browsers": ["Chromium-All","WebKit","Firefox"],
     "apps" : ["Chromium-All","Firefox","Blender","UnrealEngine","godot","Visual Studio Code"],
-    "os": ["linux","SerenityOS","XNU","FreeBSD","ChromeOS","ArduPilot","PixHawk4"],
+    "os": ["linux","SerenityOS","XNU","FreeBSD","ChromeOS","ArduPilot","PixHawk4","NuttX"],
 }

@@ -55,6 +55,7 @@ on:
           - o3de
           - ArduPilot
           - PixHawk4
+          - NuttX
 
 jobs:
   update-repo:
