@@ -327,6 +327,7 @@ fns = {
     "PixHawk4" : doPX4,
     "NuttX" : doNuttX,
     "MuseScore" : doMusescore,
+    "LMMS" : doLMMS,
 }
 fn = ""
 try:

@@ -56,7 +56,7 @@ on:
           - ArduPilot
           - PixHawk4
           - NuttX
-          - Musescore
+          - MuseScore
           - LMMS
 
 jobs:
