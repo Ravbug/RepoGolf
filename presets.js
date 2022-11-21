@@ -6,6 +6,6 @@ const presets = {
     "languages": ["rust","Swift","cpython","kotlin","zig","fsharp","ruby","golang","PHP","Dart"],
     "databases": ["MongoDB","FoundationDB","MySQL","PostgreSQL","sqlite"],
     "browsers": ["Chromium-All","WebKit","Firefox"],
-    "apps" : ["Chromium-All","Firefox","Blender","UnrealEngine","godot","Visual Studio Code"],
+    "apps" : ["Chromium-All","Firefox","Blender","UnrealEngine","godot","Visual Studio Code","Musescore","LMMS"],
     "os": ["linux","SerenityOS","XNU","FreeBSD","ChromeOS","ArduPilot","PixHawk4","NuttX"],
 }

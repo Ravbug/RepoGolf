@@ -200,6 +200,13 @@ def doLumberyard():
 def doO3de():
     simpleGithub("o3de","o3de",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m", ".lua", ".prefab", ".py", ".cmake"},"development",nameOverride="o3de")
 
+def doMusescore():
+    simpleGithub("musescore","MuseScore",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m", ".lua", ".py", ".cmake", ".qml"},"master",nameOverride="MuseScore")
+
+def doLMMS():
+    os.system("git clone https://github.com/LMMS/lmms lmms --depth=1 --recurse-submodules")
+    simpleDirectory("lmms", {".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".py",".html",".xml",".mm",".m",".lua",".vert",".frag",".comp",".qml",".ts"},"LMMS")
+
 def doCocos2Dx():
     downloadGithub("cocos2d/cocos2d-x")
     os.chdir("cocos2d-x-4")
@@ -319,6 +326,7 @@ fns = {
     "ArduPilot" : doArduPilot,
     "PixHawk4" : doPX4,
     "NuttX" : doNuttX,
+    "MuseScore" : doMusescore,
 }
 fn = ""
 try:
