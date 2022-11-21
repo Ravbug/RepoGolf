@@ -107,6 +107,12 @@
         "ext": ".hpp, .cpp, .js, .wxs, .yml, .h, .xml, .py, .gn, .c",
         "size": 322493905
     },
+    "MuseScore": {
+        "count": 6493,
+        "date": "2022-11-21",
+        "ext": ".cxx, .mm, .cs, .m, .in, .cpp, .h, .hpp, .sh, .qml, .cmake, .c, .html, .py, .xml, .lua, .cc",
+        "size": 58957669
+    },
     "MySQL": {
         "count": 7344,
         "date": "2022-06-03",
