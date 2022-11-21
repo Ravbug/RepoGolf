@@ -27,15 +27,6 @@
         <select id="presetchooser">
             <option value="top-size">Top 10 Size</option>
             <option value="top-files">Top 10 File Count</option>
-            <option value="engines">Game Engines</option>
-            <option value="runtimes">Runtimes</option>
-            <option value="frameworks">Frameworks</option>
-            <option value="gui">GUI</option>
-            <option value="apps">Apps</option>
-            <option value="databases">Databases</option>
-            <option value="languages">Languages</option>
-            <option value="browsers">Browsers</option>
-            <option value="os">Operating Systems and Firmware</option>
             <option value="all-files">Everything By File Count</option>
             <option value="all-size">Everything By Size</option>
         </select>
@@ -56,6 +47,13 @@
         const presetchooser = document.getElementById('presetchooser')
         const items = new Set()
         let data = {};
+
+        for(const [value,data] of Object.entries(presets)){
+            const optelement = document.createElement('option')
+            optelement.innerHTML = data["label"]
+            optelement.value = value
+            presetchooser.appendChild(optelement)
+        }
 
         function clearItems(){
             items.clear()
@@ -114,7 +112,7 @@
                 }
             }
             else{
-                let presetvals = presets[item]
+                let presetvals = presets[item]["items"]
                 for(const item of presetvals){
                     items.add(item)
                 }
