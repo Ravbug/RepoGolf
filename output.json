@@ -89,6 +89,12 @@
         "ext": ".vs, .java, .qml, .s, .m, .mm, .f90, .fs, .cs, .c, .h, .hpp, .asm, .metal, .hlsl, .cmake, .glsl, .vert, .js, .cc, .cxx, .S, .in, .cpp, .frag",
         "size": 36772612
     },
+    "LMMS": {
+        "count": 5461,
+        "date": "2022-11-21",
+        "ext": ".in, .m, .c, .qml, .cmake, .h, .comp, .html, .frag, .ts, .cxx, .xml, .cpp, .py, .sh, .lua, .cc, .cs, .hpp, .vert, .mm",
+        "size": 102565976
+    },
     "Lumberyard": {
         "count": 35964,
         "date": "2022-10-21",
