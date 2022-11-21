@@ -119,6 +119,12 @@
         "ext": ".c, .h, .pod, .map, .html, .S, .js, .ts, .lock, .py, .opts, .hpp, .cpp, .json",
         "size": 259881329
     },
+    "NuttX": {
+        "count": 14892,
+        "date": "2022-11-03",
+        "ext": ".S, .html, .bas, .cs, .cc, .mm, .cxx, .sh, .cpp, .m, .lua, .c, .in, .cmake, .h, .py, .hpp, .ld, .xml",
+        "size": 173735921
+    },
     "OpenJDK": {
         "count": 55254,
         "date": "2022-05-29",
