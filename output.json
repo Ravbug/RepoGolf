@@ -294,10 +294,10 @@
         "size": 50283513
     },
     "rust": {
-        "count": 21623,
-        "date": "2022-05-31",
-        "ext": ".toml, .sh, .rs, .rust",
-        "size": 53498193
+        "count": 26268,
+        "date": "2023-04-18",
+        "ext": ".rs, .sh, .toml, .rust",
+        "size": 71076396
     },
     "sqlite": {
         "count": 504,
