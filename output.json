@@ -277,9 +277,9 @@
     },
     "llvm-project": {
         "count": 76813,
-        "date": "2022-05-27",
-        "ext": ".cc, .cxx, .in, .c, .asm, .py, .hlsl, .h, .sh, .vs, .cmake, .fsh, .fs, .ll, .hpp, .frag, .vert, .glsl, .vsh, CMakeLists.txt, makefile, .cpp, .cs",
-        "size": 797443375
+        "date": "2023-05-05",
+        "ext": "CMakeLists.txt, .frag, .py, .vsh, .fs, .cpp, .cmake, .vert, .hlsl, .glsl, .in, .fsh, .cxx, .c, .cs, .ll, makefile, .cc, .vs, .hpp, .h, .sh, .asm",
+        "size": 797474543
     },
     "o3de": {
         "count": 19047,
