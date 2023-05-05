@@ -240,10 +240,10 @@
         "size": 34194042
     },
     "gcc": {
-        "count": 83423,
-        "date": "2022-05-28",
-        "ext": ".d, .cxx, .m, .cmake, makefile, .hpp, .asm, .go, .S, .f90, .cpp, .cs, .cc, .ads, .sh, .py, .h, .s, .in, .c, CMakeLists.txt",
-        "size": 314658372
+        "count": 88390,
+        "date": "2023-05-05",
+        "ext": ".mm, .S, .s, .c, .ads, .cs, .sh, CMakeLists.txt, .d, .cxx, .cmake, .in, .h, .py, .f90, .go, .cc, .m, makefile, .cpp, .asm, .hpp",
+        "size": 332203039
     },
     "godot": {
         "count": 5884,
