@@ -246,10 +246,10 @@
         "size": 332203039
     },
     "godot": {
-        "count": 6067,
-        "date": "2024-02-06",
-        "ext": ".c, .h, .cs, .cc, .cxx, .in, .cpp, .sh, .hpp",
-        "size": 130203115
+        "count": 6366,
+        "date": "2024-06-04",
+        "ext": ".hpp, .cpp, .c, .sh, .cxx, .in, .h, .cs, .cc",
+        "size": 138799871
     },
     "golang": {
         "count": 9541,
