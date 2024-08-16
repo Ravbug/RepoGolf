@@ -282,10 +282,10 @@
         "size": 797474543
     },
     "o3de": {
-        "count": 19047,
-        "date": "2022-10-24",
-        "ext": ".prefab, .in, .m, .cmake, .h, .cc, .hpp, .cpp, .cs, .sh, .mm, .lua, .c, .xml, .cxx, .py, .html",
-        "size": 156450775
+        "count": 19581,
+        "date": "2024-08-16",
+        "ext": ".in, .cmake, .cxx, .m, .lua, .mm, .sh, .html, .xml, .cs, .h, .prefab, .c, .py, .cpp, .hpp, .cc",
+        "size": 161235037
     },
     "ruby": {
         "count": 8612,
