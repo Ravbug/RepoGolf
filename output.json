@@ -60,10 +60,10 @@
         "size": 545322948
     },
     "Electron": {
-        "count": 21844,
-        "date": "2022-09-22",
-        "ext": ".mm, .py, .h, .hpp, .c, .map, .lock, .js, .cpp, .opts, .json, .ts",
-        "size": 213652782
+        "count": 25189,
+        "date": "2024-08-25",
+        "ext": ".hpp, .ts, .h, .cpp, .json, .js, .mm, .py, .opts, .c, .map, .lock",
+        "size": 177661533
     },
     "Firefox": {
         "count": 37969,
