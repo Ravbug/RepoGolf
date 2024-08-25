@@ -271,8 +271,8 @@
     },
     "linux": {
         "count": 55232,
-        "date": "2023-09-25",
-        "ext": ".c, .in, .hlsl, .fs, .cs, .hpp, makefile, .asm, .vs, .vert, .glsl, .cxx, .sh, .vsh, .cpp, .cmake, .h, .frag, .fsh, .cc",
+        "date": "2024-08-25",
+        "ext": ".asm, makefile, .h, .vert, .in, .frag, .cpp, .sh, .c, .cmake, .cc, .cs, .hpp, .vs, .fs, .vsh, .glsl, .fsh, .cxx, .hlsl",
         "size": 1100807014
     },
     "llvm-project": {
