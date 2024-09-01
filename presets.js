@@ -25,7 +25,7 @@ const presets = {
     },
     "browsers": {
         label: "Browsers",
-        items: ["Chromium-All","WebKit","Firefox"],
+        items: ["Chromium-All","WebKit","Firefox","ladybird"],
     },
     "apps" : {
         label: "Apps",
