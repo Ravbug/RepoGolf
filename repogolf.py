@@ -331,6 +331,7 @@ fns = {
     "NuttX" : doNuttX,
     "MuseScore" : doMusescore,
     "LMMS" : doLMMS,
+    "Ladybird": doLadybird
 }
 fn = ""
 try:
