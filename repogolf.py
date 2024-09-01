@@ -75,6 +75,9 @@ def doLinux():
     os.system("curl \"https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.19.9.tar.xz\" -o archive.xz && unxz -v archive.xz && tar xvf archive > /dev/null")
     simpleDirectory("linux-5.19.9",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl", ".hlsl", ".vsh",".fsh", ".asm", "makefile"}, "linux")
 
+def doLadybird():
+     simpleGithub("LadybirdBrowser","ladybird",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl",".metal"},"master")
+
 def doLLVM():
     os.system("curl -L \"https://github.com/llvm/llvm-project/archive/refs/tags/llvmorg-14.0.0.zip\" -o archive.zip && unzip archive.zip > /dev/null && rm archive.zip")
     simpleDirectory("llvm-project-llvmorg-14.0.0",{".c", ".h", ".cpp", ".hpp", ".cc", ".cxx", ".cs", ".in", ".sh", ".cmake",".vert",".frag",".vs",".fs",".glsl", ".hlsl", ".vsh",".fsh", ".asm", "makefile", ".ll", ".py", "CMakeLists.txt"}, "llvm-project")
