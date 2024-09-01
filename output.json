@@ -269,6 +269,12 @@
         "ext": ".kt, .cpp, .h, .c, .hpp, .java",
         "size": 146897757
     },
+    "ladybird": {
+        "count": 3594,
+        "date": "2024-09-01",
+        "ext": ".cc, .in, .fs, .glsl, .metal, .h, .cmake, .cxx, .vert, .cs, .sh, .cpp, .vs, .frag, .hpp, .c",
+        "size": 24880697
+    },
     "linux": {
         "count": 55232,
         "date": "2024-08-25",
